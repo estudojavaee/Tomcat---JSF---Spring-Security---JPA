@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+	<h:body>
+    
+    	<h3>Hello Admin</h3>	
+    	
+    	
+    	<p:dataTable value="#{adminHomeMB.usuarios}" var="usuario">
+    		
+    		<f:facet name="header">
+    			Listando
+    		</f:facet>
+    		
+    		<f:facet name="footer">
+    			OBS: Nunca ponha a senha na VIEW
+    		</f:facet>
+    		
+    		<p:column>
+    			<p:outputLabel value="#{usuario.idUsuario}"/>
+    		</p:column>
+    		
+    		<p:column>
+    			<p:outputLabel value="#{usuario.login}"/>
+    		</p:column>
+    		
+    		<p:column>
+    			<p:outputLabel value="#{usuario.senha}"/>
+    		</p:column>
+    		
+ 
+    		
+    		
+    		
+    	</p:dataTable>
+    	
+    	
+   </h:body>
+</html>

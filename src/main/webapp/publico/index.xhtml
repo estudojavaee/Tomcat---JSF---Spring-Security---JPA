@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+<h:head></h:head> 
+<h:body>
+    
+     <c:if test="${param.login_error=='1'}">
+        <c:set var="username" value="#{sessionScope.SPRING_SECURITY_LAST_USERNAME}"/>
+        <div class="ERROR">
+            Senha inválida , tente novamente.<br />
+        </div>
+	</c:if>
+	
+   <form id="login" method="post" action="#{request.contextPath}/j_spring_security_check">
+				<table>
+					<tr><td>Login</td></tr>
+					<tr><td><input type='text' name='j_username'/></td></tr>
+					<tr><td>Senha</td></tr>
+					<tr><td><input type='password' name='j_password'/></td></tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="_spring_security_remember_me"/>
+							Entrar Automaticamente
+						</td>
+							
+					</tr>
+					<tr><td></td></tr>
+					<tr>
+						<td>
+							<input type="submit" value="Entrar"/>  &sbnp; <a href="esqueci_senha.jsf">Esqueci a senha</a>
+							
+						</td>
+					</tr>
+				</table>
+				<script>
+					document.getElementById("login").j_username.value="#{SPRING_SECURITY_LAST_USERNAME}";
+				</script>
+			
+			</form><br />
+   </h:body>
+</html>
